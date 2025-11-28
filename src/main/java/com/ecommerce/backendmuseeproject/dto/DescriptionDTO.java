@@ -14,4 +14,6 @@ public class DescriptionDTO {
     private String texte;
 
     private OeuvreDTO oeuvreDTO;
+
+    //private Date date;
 }
