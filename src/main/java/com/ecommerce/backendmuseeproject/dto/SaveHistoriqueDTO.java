@@ -8,4 +8,6 @@ public class SaveHistoriqueDTO {
     private String createur;
 
     private Long oeuvreId;
+
+    //private String auteur;
 }
