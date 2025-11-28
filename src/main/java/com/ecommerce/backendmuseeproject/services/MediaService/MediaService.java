@@ -18,5 +18,5 @@ public interface MediaService {
 
     public void deleteMedia(Long mediaId);
 
-    //public void allMedia();
+
 }
