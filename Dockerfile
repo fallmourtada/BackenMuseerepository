@@ -1,14 +1,5 @@
-# Image de base Java 17
-FROM openjdk:17-jdk-slim
-
-# Répertoire de travail dans le conteneur
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
-
-# Copier le JAR Maven buildé
 COPY target/*.jar app.jar
-
-# Exposer le port de l'application
 EXPOSE 8087
-
-# Lancer l'application
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
