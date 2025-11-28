@@ -43,7 +43,7 @@ public class DescriptionController {
     @GetMapping
     public ResponseEntity<List<DescriptionDTO>> getAllDescriptions() {
         List<DescriptionDTO> descriptions = descriptionService.getAllDescription();
-        return new ResponseEntity<>(descriptions, HttpStatus.OK);
+          return new ResponseEntity<>(descriptions, HttpStatus.OK);
     }
 
 

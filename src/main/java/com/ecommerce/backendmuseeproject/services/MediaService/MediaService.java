@@ -17,4 +17,6 @@ public interface MediaService {
     public MediaDTO updateMedia(Long mediaId, UpdateMediaDTO updateMediaDTO);
 
     public void deleteMedia(Long mediaId);
+
+    //public void allMedia();
 }
