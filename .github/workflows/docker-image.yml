@@ -15,4 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build ./api/ -t bayetalla/backend-musee-hub:latest
+    -name: push image to docker Hub
+    run: |
+      docker login -u bayetalla -p  ${{ secrets.DOCKER_HUB_TOKEN}}
+      docker push bayetalla/backend-musee-hub:latest
+      
