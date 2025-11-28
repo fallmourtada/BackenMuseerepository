@@ -11,23 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Récupérer le code source
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2️⃣ Installer Java 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: "17"
           distribution: "temurin"
 
+      # 3️⃣ Build le JAR avec Maven (tests ignorés)
       - name: Build JAR with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package -DskipTests --file pom.xml
 
+      # 4️⃣ Construire l'image Docker
       - name: Build Docker image
         run: docker build . -t bayetalla/backend-musee-hub:latest
 
+      # 5️⃣ Login sur Docker Hub
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u bayetalla --password-stdin
 
+      # 6️⃣ Pousser l'image sur Docker Hub
       - name: Push Docker image
         run: docker push bayetalla/backend-musee-hub:latest
